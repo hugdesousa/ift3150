@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@neondatabase/serverless"],
     serverActions: {
-      allowedOrigins: ["localhost:3000"],
+      allowedOrigins: ["https://ift3150-psi.vercel.app/"],
     },
   },
   async headers() {
