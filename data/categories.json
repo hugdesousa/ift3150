@@ -1,0 +1,76 @@
+{
+  "Plomberie": [
+    "Installation/réparation de douches",
+    "Réparation de fuites",
+    "Installation de chauffe‑eau",
+    "Débouchage de canalisations",
+    "Pose de robinetterie"
+  ],
+  "Électricité": [
+    "Installation de prises et interrupteurs",
+    "Mise aux normes du tableau électrique",
+    "Pose de luminaires",
+    "Dépannage de courts‑circuits",
+    "Installation de climatisation"
+  ],
+  "Menuiserie & Charpente": [
+    "Pose de portes et fenêtres",
+    "Construction d’armoires",
+    "Réparation de meubles sur‑mesure",
+    "Aménagement de placards",
+    "Travaux de parquet"
+  ],
+  "Peinture & Revêtements": [
+    "Peinture intérieure/extérieure",
+    "Pose de papier peint",
+    "Enduits et préparation de surface",
+    "Application de laque/vernis"
+  ],
+  "Revêtements de sol": [
+    "Carrelage",
+    "Parquet flottant",
+    "Moquette",
+    "Résine",
+    "Plinthes"
+  ],
+  "Toiture & Gouttières": [
+    "Réparation de fuite de toit",
+    "Pose/Nettoyage de gouttières",
+    "Réfection de couverture (tuiles, bardeaux)"
+  ],
+  "Chauffage & Climatisation": [
+    "Installation de chaudière",
+    "Entretien de radiateurs",
+    "Pose de thermopompe",
+    "Dépannage chauffage central"
+  ],
+  "Maçonnerie & Béton": [
+    "Construction de murets",
+    "Dalle de béton",
+    "Pose de pavés",
+    "Étanchéité de sous‑sol"
+  ],
+  "Aménagement extérieur": [
+    "Construction de terrasse/deck",
+    "Pose de clôture",
+    "Paysagement (plantation, gazon)",
+    "Installation d’éclairage extérieur"
+  ],
+  "Dépannage & Petits travaux": [
+    "Fixations murales (TV, étagères)",
+    "Réglages de portes",
+    "Montage de meubles",
+    "Services à la demande (odd‑jobs)"
+  ],
+  "Installations & Raccordements": [
+    "Branchement d’appareils électroménagers",
+    "Installation de systèmes domotiques",
+    "Câblage réseau et téléphonie"
+  ],
+  "Services spécialisés": [
+    "Architecte / Dessin de plan",
+    "Inspection immobilière",
+    "Amiante / Plomb / Qualité de l’air",
+    "Prestations de designer (intérieur)"
+  ]
+}

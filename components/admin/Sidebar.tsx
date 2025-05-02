@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { adminSideBarLinks } from "@/constants";
 import Link from "next/link";
-import { cn, getInitials } from "@/lib/utils";
+import { cn, getInitials } from "@/lib/utils/utils";
 import { usePathname } from "next/navigation";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Session } from "next-auth";
@@ -21,7 +21,7 @@ const Sidebar = ({ session }: { session: Session }) => {
             height={37}
             width={37}
           />
-          <h1>BookWise</h1>
+          <h1>Helpr</h1>
         </div>
 
         <div className="mt-10 flex flex-col gap-5">

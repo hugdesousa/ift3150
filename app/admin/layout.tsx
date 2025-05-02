@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-
 import "@/styles/admin.css";
 import Sidebar from "@/components/admin/Sidebar";
 import Header from "@/components/admin/Header";

@@ -1,0 +1,2 @@
+ALTER TABLE "reviews" ADD COLUMN "appointment_id" uuid NOT NULL;--> statement-breakpoint
+ALTER TABLE "reviews" ADD CONSTRAINT "reviews_appointment_id_appointments_id_fk" FOREIGN KEY ("appointment_id") REFERENCES "public"."appointments"("id") ON DELETE no action ON UPDATE no action;

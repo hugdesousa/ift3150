@@ -1,0 +1,287 @@
+[
+    {
+        "user_id": "8bf7f7a8-8f25-4f5d-91e4-0a4b5f1d3201",
+        "fullName": "Jean Dumont",
+        "skill": "Réparation de fuites",
+        "category": "Plomberie",
+        "rating": 4,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Plombier avec plus de 10 ans d’expérience, spécialisé en détection et réparations de fuites complexes.",
+        "hourly_rate": 45,
+        "location": "Montréal, QC",
+        "latitude": 45.5017,
+        "longitude": -73.5673,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 1, "start": "09:00", "end": "17:00" },
+                { "dayOfWeek": 3, "start": "13:00", "end": "19:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-01-15T09:00:00Z",
+        "updated_at": "2024-03-20T14:30:00Z"
+    },
+    {
+        "user_id": "054d13c0-6cc1-4d67-9dc2-298c6df8dd12",
+        "fullName": "Jeanne Martin",
+        "skill": "Installation commerciale",
+        "category": "Électricité",
+        "rating": 5,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Électricienne certifiée pour installations industrielles et résidentielles, disponible 24/7 pour urgences.",
+        "hourly_rate": 50,
+        "location": "Québec, QC",
+        "latitude": 46.8139,
+        "longitude": -71.2082,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 2, "start": "08:00", "end": "12:00" },
+                { "dayOfWeek": 4, "start": "14:00", "end": "18:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2023-11-10T08:15:00Z",
+        "updated_at": "2024-02-05T11:20:00Z"
+    },
+    {
+        "user_id": "a34e8e0d-9d22-42a5-8883-9bc1c0f2b1e3",
+        "fullName": "Carlos Herrera",
+        "skill": "Menuiserie sur mesure",
+        "category": "Rénovation",
+        "rating": 3,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/profiles/menuisier.jpg",
+        "description": "Menuisier spécialisé dans la fabrication de meubles et armoires haut de gamme.",
+        "hourly_rate": 40,
+        "location": "Laval, QC",
+        "latitude": 45.6066,
+        "longitude": -73.7124,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 5, "start": "10:00", "end": "18:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-02-01T13:45:00Z",
+        "updated_at": "2024-04-10T09:10:00Z"
+    },
+    {
+        "user_id": "c1d77373-3e32-4f94-89d1-0361ec767ef4",
+        "fullName": "Linette Chen",
+        "skill": "Diagnostics électroniques",
+        "category": "Mécanique Auto",
+        "rating": 5,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Mécanicienne spécialisée dans les moteurs hybrides et les systèmes électroniques embarqués.",
+        "hourly_rate": 55,
+        "location": "Longueuil, QC",
+        "latitude": 45.5312,
+        "longitude": -73.5181,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 1, "start": "08:00", "end": "16:00" },
+                { "dayOfWeek": 3, "start": "08:00", "end": "16:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2023-12-05T10:30:00Z",
+        "updated_at": "2024-03-15T16:45:00Z"
+    },
+    {
+        "user_id": "d63f3a7e-3c2e-4b8d-9098-6cad6e1e3740",
+        "fullName": "Sophie Gagnon",
+        "skill": "Peinture intérieure",
+        "category": "Peinture",
+        "rating": 4,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Peintre décoratrice offrant finitions haut de gamme, effets spéciaux et conseils couleur.",
+        "hourly_rate": 38,
+        "location": "Sherbrooke, QC",
+        "latitude": 45.4042,
+        "longitude": -71.8929,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 2, "start": "09:00", "end": "17:00" },
+                { "dayOfWeek": 4, "start": "11:00", "end": "19:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-01-25T09:00:00Z",
+        "updated_at": "2024-02-10T12:00:00Z"
+    },
+    {
+        "user_id": "e4e0c2f6-f6a0-4f3f-a2e7-40c21ae63eb2",
+        "fullName": "Marc Leclerc",
+        "skill": "Entretien paysager",
+        "category": "Jardinage",
+        "rating": 3,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Paysagiste offrant tonte, taille d’arbustes et conception de plates-bandes.",
+        "hourly_rate": 32,
+        "location": "Trois-Rivières, QC",
+        "latitude": 46.3452,
+        "longitude": -72.5478,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 1, "start": "07:00", "end": "15:00" },
+                { "dayOfWeek": 5, "start": "07:00", "end": "15:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-03-02T08:15:00Z",
+        "updated_at": "2024-03-18T10:25:00Z"
+    },
+    {
+        "user_id": "f1919ee6-4b6d-42e9-bc9e-36e5f4f49d95",
+        "fullName": "Olivier Roy",
+        "skill": "Installation de toitures",
+        "category": "Toiture",
+        "rating": 4,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Couvreur certifié BP, expert bardeaux d’asphalte et membranes TPO.",
+        "hourly_rate": 48,
+        "location": "Gatineau, QC",
+        "latitude": 45.4765,
+        "longitude": -75.7013,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 2, "start": "06:00", "end": "14:00" },
+                { "dayOfWeek": 4, "start": "06:00", "end": "14:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2023-10-18T12:00:00Z",
+        "updated_at": "2024-01-22T09:45:00Z"
+    },
+    {
+        "user_id": "25b5ab92-9f93-4b1a-8953-7ab1f9e2c6a1",
+        "fullName": "Nadia Fortin",
+        "skill": "Climatisation résidentielle",
+        "category": "HVAC",
+        "rating": 5,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Technicienne CVC agréée, entretien et pose de thermopompes.",
+        "hourly_rate": 52,
+        "location": "Saguenay, QC",
+        "latitude": 48.4282,
+        "longitude": -71.0673,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 1, "start": "09:00", "end": "17:00" },
+                { "dayOfWeek": 3, "start": "09:00", "end": "17:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-02-11T11:00:00Z",
+        "updated_at": "2024-03-30T14:10:00Z"
+    },
+    {
+        "user_id": "aa1b1f6d-a08d-4d60-97d9-ee8e53b9619f",
+        "fullName": "Pierre Lavoie",
+        "skill": "Pose de céramique",
+        "category": "Revêtement de sol",
+        "rating": 4,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Carreleur méticuleux, mosaïque, porcelaine et pierres naturelles.",
+        "hourly_rate": 42,
+        "location": "Drummondville, QC",
+        "latitude": 45.8808,
+        "longitude": -72.4873,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 2, "start": "08:00", "end": "16:00" },
+                { "dayOfWeek": 4, "start": "10:00", "end": "18:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-01-08T09:45:00Z",
+        "updated_at": "2024-04-02T15:20:00Z"
+    },
+    {
+        "user_id": "4df09639-d539-4a68-92c8-2e3d2444baf3",
+        "fullName": "Fatima Benkacem",
+        "skill": "Soudure MIG",
+        "category": "Soudure",
+        "rating": 5,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Soudeuse certifiée CWB, acier et aluminium, projets industriels.",
+        "hourly_rate": 60,
+        "location": "Saint-Jean-sur-Richelieu, QC",
+        "latitude": 45.3071,
+        "longitude": -73.2629,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 1, "start": "07:00", "end": "15:00" },
+                { "dayOfWeek": 3, "start": "07:00", "end": "15:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2023-09-14T07:30:00Z",
+        "updated_at": "2024-02-28T13:15:00Z"
+    },
+    {
+        "user_id": "c4a7d9e2-da7a-4147-9d4c-10b00ea8b8aa",
+        "fullName": "Émile Parent",
+        "skill": "Réparation de toitures plates",
+        "category": "Toiture",
+        "rating": 3,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Expert membranes élastomères, recherche d’infiltrations et entretien annuel.",
+        "hourly_rate": 47,
+        "location": "Granby, QC",
+        "latitude": 45.398,
+        "longitude": -72.7213,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 5, "start": "06:00", "end": "14:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2023-11-21T06:45:00Z",
+        "updated_at": "2024-03-12T10:05:00Z"
+    },
+    {
+        "user_id": "de35c6f3-8b03-46c9-ae03-20775a6027aa",
+        "fullName": "Laura Morin",
+        "skill": "Dépannage informatique",
+        "category": "Informatique",
+        "rating": 5,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Technicienne IT mobile : suppression de virus, installation réseau, récupération de données.",
+        "hourly_rate": 58,
+        "location": "Montréal, QC",
+        "latitude": 45.5089,
+        "longitude": -73.5617,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 1, "start": "10:00", "end": "18:00" },
+                { "dayOfWeek": 3, "start": "12:00", "end": "20:00" },
+                { "dayOfWeek": 5, "start": "09:00", "end": "17:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2024-03-01T11:20:00Z",
+        "updated_at": "2024-04-15T14:40:00Z"
+    },
+    {
+        "user_id": "f8f5f2a9-758e-4ab8-9629-6fe5b7e19777",
+        "fullName": "Antoine Renaud",
+        "skill": "Entretien de piscines",
+        "category": "Services extérieurs",
+        "rating": 4,
+        "profile_image_url": "https://ik.imagekit.io/wbbxpnig8/workers/avatar/default.svg",
+        "description": "Nettoyage, ouverture/fermeture de piscines et équilibrage chimique.",
+        "hourly_rate": 35,
+        "location": "Brossard, QC",
+        "latitude": 45.4703,
+        "longitude": -73.4553,
+        "availability": {
+            "weekly": [
+                { "dayOfWeek": 2, "start": "08:00", "end": "14:00" },
+                { "dayOfWeek": 4, "start": "08:00", "end": "14:00" }
+            ],
+            "exceptions": []
+        },
+        "created_at": "2023-08-30T08:00:00Z",
+        "updated_at": "2024-03-05T09:50:00Z"
+    }
+]

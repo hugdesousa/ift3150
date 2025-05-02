@@ -1,86 +1,75 @@
 "use server";
 
-import { eq } from "drizzle-orm";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
-import { hash } from "bcryptjs";
+import { eq } from "drizzle-orm";
+import { hash, compare } from "bcryptjs";
 import { signIn } from "@/auth";
-import { headers } from "next/headers";
-import ratelimit from "@/lib/ratelimit";
 import { redirect } from "next/navigation";
-import { workflowClient } from "@/lib/workflow";
-import config from "@/lib/config";
 
-export const signInWithCredentials = async (
-  params: Pick<AuthCredentials, "email" | "password">,
-) => {
-  const { email, password } = params;
+// Connexion utilisateur
+export async function loginUser(formData: FormData) {
+  const email = formData.get("email")?.toString();
+  const password = formData.get("password")?.toString();
 
-  const ip = (await headers()).get("x-forwarded-for") || "127.0.0.1";
-  const { success } = await ratelimit.limit(ip);
-
-  if (!success) return redirect("/too-fast");
+  if (!email || !password) {
+    return { error: "Email et mot de passe requis" };
+  }
 
   try {
-    const result = await signIn("credentials", {
+    await signIn("credentials", {
       email,
       password,
       redirect: false,
     });
-
-    if (result?.error) {
-      return { success: false, error: result.error };
-    }
-
-    return { success: true };
+    redirect("/"); // Redirection côté serveur
   } catch (error) {
-    console.log(error, "Signin error");
-    return { success: false, error: "Signin error" };
+    return { error: "Identifiants invalides" };
   }
-};
+}
 
-export const signUp = async (params: AuthCredentials) => {
-  const { fullName, email, universityId, password, universityCard } = params;
+// Inscription utilisateur
+export async function registerUser(formData: FormData) {
+  const email = formData.get("email")?.toString();
+  const password = formData.get("password")?.toString();
+  const fullName = formData.get("fullName")?.toString();
 
-  const ip = (await headers()).get("x-forwarded-for") || "127.0.0.1";
-  const { success } = await ratelimit.limit(ip);
-
-  if (!success) return redirect("/too-fast");
-
-  const existingUser = await db
-    .select()
-    .from(users)
-    .where(eq(users.email, email))
-    .limit(1);
-
-  if (existingUser.length > 0) {
-    return { success: false, error: "User already exists" };
+  if (!email || !password || !fullName) {
+    return { error: "Tous les champs sont requis" };
   }
-
-  const hashedPassword = await hash(password, 10);
 
   try {
+    // Vérification de l'existence de l'utilisateur
+    const existingUser = await db.query.users.findFirst({
+      where: eq(users.email, email),
+    });
+
+    if (existingUser) {
+      return { error: "Cet email est déjà utilisé" };
+    }
+
+    // Hachage du mot de passe
+    const hashedPassword = await hash(password, 12);
+
+    // Création de l'utilisateur
     await db.insert(users).values({
-      fullName,
+      id: crypto.randomUUID(),
+      full_name: fullName,
       email,
-      universityId,
-      password: hashedPassword,
-      universityCard,
+      password_hash: hashedPassword,
+      status: "ACTIVE",
+      role: "USER",
     });
 
-    await workflowClient.trigger({
-      url: `${config.env.prodApiEndpoint}/api/workflows/onboarding`,
-      body: {
-        email,
-        fullName,
-      },
+    // Connexion automatique
+    await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
     });
-
-    await signInWithCredentials({ email, password });
-
-    return { success: true };
+    redirect("/"); // Redirection côté serveur
   } catch (error) {
-    console.log(error, "Signup error");
-    return { success: false, error: "Signup error" };
+    console.error("Erreur d'inscription:", error);
+    return { error: "Erreur lors de l'inscription" };
   }
-};
+}

@@ -1,74 +1,76 @@
-import NextAuth, { User } from "next-auth";
-import { compare } from "bcryptjs";
+// ift3150/auth.ts
+export const runtime = "nodejs";
+// Force Node runtime si vous voulez cookies() sync
+
+import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { getServerSession } from "next-auth/next";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { eq } from "drizzle-orm";
+import { compare } from "bcryptjs";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  session: {
-    strategy: "jwt",
-  },
+export const authOptions: NextAuthOptions = {
+  session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          return null;
-        }
+        if (!credentials?.email || !credentials?.password) return null;
+        const userRow = await db.query.users.findFirst({
+          where: eq(users.email, credentials.email),
+        });
+        if (!userRow?.password_hash) return null;
 
-        const user = await db
-          .select()
-          .from(users)
-          .where(eq(users.email, credentials.email.toString()))
-          .limit(1);
-
-        if (user.length === 0) return null;
-
-        const isPasswordValid = await compare(
-          credentials.password.toString(),
-          user[0].password,
+        const isValid = await compare(
+          credentials.password,
+          userRow.password_hash,
         );
-
-        if (!isPasswordValid) return null;
+        if (!isValid) return null;
 
         return {
-          id: user[0].id.toString(),
-          email: user[0].email,
-          name: user[0].fullName,
-        } as User;
+          id: userRow.id,
+          name: userRow.full_name,
+          email: userRow.email,
+          role: userRow.role ?? "USER",
+        };
       },
     }),
   ],
-  pages: {
-    signIn: "/sign-in",
-    signOut: "/sign-in", // Redirigez vers la page de connexion après la déconnexion
-  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.name = user.name;
+        token.user = {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          role: user.role,
+        };
       }
-
-      console.log("JWT token: %o", token); // Affichez le token JWT
       return token;
     },
     async session({ session, token }) {
-      if (session.user) {
-        console.log("Session user: %o", session.user); // Affichez l'utilisateur de la session
-        console.log("Token: %o", token); // Affichez le token complet
-
-        session.user.id = token.id as string;
-        session.user.name = token.name as string;
+      if (token.user) {
+        session.user = {
+          ...token.user,
+        };
       }
-
       return session;
     },
   },
-  events: {
-    async signOut() {
-      console.log("User signed out. Token invalidated."); // Log lors de la déconnexion
-      console.log("Session user: %o", CredentialsProvider.name); // Affichez l'utilisateur de la session
-    },
+  pages: {
+    signIn: "/sign-in",
   },
-});
+};
+
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
+
+// Export named "auth()" => SSR
+export async function auth() {
+  return getServerSession(authOptions);
+}

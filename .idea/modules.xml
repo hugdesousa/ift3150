@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/university-library.iml" filepath="$PROJECT_DIR$/.idea/university-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/helpr-project.iml" filepath="$PROJECT_DIR$/.idea/helpr-project.iml" />
     </modules>
   </component>
 </project>

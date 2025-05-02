@@ -1,0 +1,11 @@
+text,label
+"Ma douche fuit toujours","douche_request"
+"La douche est bloquée","douche_request"
+"De l'eau coule du robinet du lavabo","fuite_lavabo"
+"Mon évier a une fuite","fuite_lavabo"
+"Je n'ai plus de lumière","electricite_probleme"
+"Mon compteur électrique s'affole","electricite_probleme"
+"Salut tout le monde","salutation"
+"Yo","salutation"
+"Je crois que je suis perdu","autre"
+"Je veux parler à un responsable","autre"

@@ -1,50 +1,32 @@
-import type { Metadata } from "next";
+//ift3150/app/layout.tsx
+
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
-
-import localFont from "next/font/local";
-import { ReactNode } from "react";
-import { SessionProvider } from "next-auth/react";
-import { auth } from "@/auth";
-
-const ibmPlexSans = localFont({
-  src: [
-    { path: "/fonts/IBMPlexSans-Regular.ttf", weight: "400", style: "normal" },
-    { path: "/fonts/IBMPlexSans-Medium.ttf", weight: "500", style: "normal" },
-    { path: "/fonts/IBMPlexSans-SemiBold.ttf", weight: "600", style: "normal" },
-    { path: "/fonts/IBMPlexSans-Bold.ttf", weight: "700", style: "normal" },
-  ],
-});
-
-const bebasNeue = localFont({
-  src: [
-    { path: "/fonts/BebasNeue-Regular.ttf", weight: "400", style: "normal" },
-  ],
-  variable: "--bebas-neue",
-});
+import Providers from "./providers";
+import React from "react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "BookWise",
-  description:
-    "BookWise is a book borrowing university library management solution.",
+  title: "Helpr",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
-
-const RootLayout = async ({ children }: { children: ReactNode }) => {
-  const session = await auth();
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <SessionProvider session={session}>
-        <body
-          className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
-        >
-          {children}
-
-          <Toaster />
-        </body>
-      </SessionProvider>
+    <html lang="fr">
+      <body className="bg-white antialiased">
+        {" "}
+        {/* bg-white plutôt que bg-red ? */}
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
-};
-
-export default RootLayout;
+}
