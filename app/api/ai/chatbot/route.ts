@@ -1,3 +1,5 @@
+// ift3150/app/api/ai/chatbot/route.ts
+
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -11,7 +13,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const FASTAPI_URL = process.env.FASTAPI_URL ?? "http://localhost:8000";
+    const FASTAPI_URL =
+      process.env.FASTAPI_URL ?? "https://ift3150-psi.vercel.app/";
 
     const res = await fetch(`${FASTAPI_URL}/analyze`, {
       method: "POST",
