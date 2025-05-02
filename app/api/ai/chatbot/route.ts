@@ -1,63 +1,33 @@
-// ift3150/app/api/ai/chatbot/route.ts
+// app/api/ai/chatbot/route.ts
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { NextRequest, NextResponse } from "next/server";
 
-import { NextResponse } from "next/server";
+export const runtime = "edge";
 
-export async function POST(request: Request) {
-  try {
-    const { text, category, history } = await request.json();
+const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
-    if (!text || typeof text !== "string") {
-      return NextResponse.json(
-        { answer: "Requête invalide : texte manquant", type: "error" },
-        { status: 400 },
-      );
-    }
-
-    const FASTAPI_URL =
-      process.env.FASTAPI_URL ?? "https://ift3150-psi.vercel.app/";
-
-    const res = await fetch(`${FASTAPI_URL}/analyze`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        text,
-        category,
-        conversation_history: history,
-      }),
-    });
-
-    if (!res.ok) {
-      return NextResponse.json(
-        { answer: "Erreur du service IA", type: "error" },
-        { status: 502 },
-      );
-    }
-
-    const data = await res.json();
-
-    const formatted = {
-      answer: data.response,
-      professional: data.professional || "none",
-      severity: data.severity ?? 1,
-      type:
-        data.type === "salutation" || data.type === "greeting"
-          ? "greeting"
-          : data.type === "generaliste"
-            ? "generalist"
-            : (data.severity ?? 0) >= 4
-              ? "emergency"
-              : "problem",
-    };
-
-    return NextResponse.json(formatted);
-  } catch (err) {
+export async function POST(req: NextRequest) {
+  const { text, history = [] } = await req.json();
+  if (!text || typeof text !== "string") {
     return NextResponse.json(
-      {
-        answer: "Service temporairement indisponible.",
-        professional: "général",
-        type: "error",
-      },
-      { status: 500 },
+      { answer: "Texte manquant", type: "error" },
+      { status: 400 },
+    );
+  }
+
+  try {
+    const model = genai.getGenerativeModel({ model: "gemini-pro" });
+    const res = await model.generateContent(text, {
+      history: history.map((m: any) => ({ role: m.role, parts: [m.text] })),
+    });
+    return NextResponse.json({
+      answer: res.response.text(),
+      type: "generalist",
+    });
+  } catch (e) {
+    return NextResponse.json(
+      { answer: "Gemini indisponible", type: "error" },
+      { status: 502 },
     );
   }
 }
